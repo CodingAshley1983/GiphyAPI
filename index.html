@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  <!-- JQUERY LINK -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <head>
   <meta charset="utf-8">
   <title>Music Giphy!</title>
@@ -38,105 +39,13 @@
 
 
   <!-- START JAVASCRIPT BELOW -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript">
-    // Initial array of musicians(Global variable):
+ 
+  <script type="text/javascript" src="assets/javascript/main.js">
+  
 
-    var music = ["Wookiefoot", "Led Zeppelin", "Ella Fitzgerald", "Sunsquabi"];
+   
 
-
-    //Create a function that is triggered by clicking the submit button, creates new music variable and API URL
-
-    function displayMusicInfo() {
-
-        console.log("hello there");
-
-
-
-        var musicInput = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=uhWODV3AlW7nK6FBrHah9AsEVdt4ixhj&q=" +
-          musicInput +
-          "&limit=10&offset=0&rating=PG-13&lang=en";
-
-        // Creates AJAX call for the specific music/musician entered
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        }).then(function (result) {
-          console.log("hi");
-          console.log(result);
-          console.log(queryURL);
-
-          // create variable that dynamically generates new div & image tag
-          var newDiv= $("<div>");
-          var imgNew = $("<img>");
-
-          //variable that will grab original GIPH image from object 
-          var giphO = result.data[i].images.original.url[0];
-          
-
-          //Display GIPH in music view section in image tag in appended DIV
-          $("#music-view").append(newDiv);
-        newDiv.append(imgNew, 'src' + giphO);
-
-            
-            
-
-
-          //Retrieve Giph rating
-          // var rated = result.rating;
-
-          //Dynamically creating space for rating data
-          // var ratingP = $("<p>").text("Rating: " + rated);
-
-          //Display rating:
-
-          // a.append(ratingP);
-
-
-        });
-       
-
-      };
-      //Display GIPH in music view section in image tag in appended DIV
-      
-
-      //Pause GIPHS when clicked
-        $("img").on("click", function() {
-          var giphS = response.data.images.downsized_still.url;
-          $("img").attr('src', giphS)
-        });
-
-    // Function for displaying music data
-    function renderButtons() {
-      $("#button-view").empty();
-      for (i = 0; i < music.length; i++) {
-        $("#button-view").append("<button id='button'> " + music[i] + "</button>")
-      }
-
-    }
-
-    // This function handles events where the add music button is clicked
-    $("#add-music").on("click", function (event) {
-      var newMusic = $("#music-input").val();
-      event.preventDefault();
-      music.push(newMusic)
-      console.log(music);
-
-
-      // The renderButtons function is called, rendering the list of music buttons
-      renderButtons();
-    });
-
-    // Calling the renderButtons function to display the initial list of music
-    renderButtons();
-
-    $("button").on("click", function () {
-      displayMusicInfo();
-    });
-  </script>
-
-
+</script>
 </body>
 
 </html>
