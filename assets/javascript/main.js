@@ -1,10 +1,10 @@
 
+// $( document ).ready(function() {
 
 // Initial array of musicians(Global variable):
 
 var music = ["Wookiefoot", "Led Zeppelin", "Ella Fitzgerald", "Sunsquabi"];
 
-$( document ).ready(function() {
 //Create a function that is triggered by clicking the submit button, creates new music variable and API URL
 
 function displayMusicInfo() {
@@ -14,6 +14,7 @@ function displayMusicInfo() {
 
 
     var musicInput = $(this).attr("music-name");
+   
     var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=uhWODV3AlW7nK6FBrHah9AsEVdt4ixhj&q=" +
       musicInput +
       "&limit=10&offset=0&rating=PG-13&lang=en";
@@ -101,9 +102,9 @@ function displayMusicInfo() {
 
         $(document).on("click",".resultGif", playGifs);
 
-     displayMusicInfo();
+    
 
 
-        });
+        // });
         
         
