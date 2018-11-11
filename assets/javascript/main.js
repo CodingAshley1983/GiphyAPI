@@ -31,10 +31,11 @@ function displayMusicInfo() {
 
       //for loop to dynamically create div & class, images and class, etc. for each result
 
-      for (var i = 0; i < result.length; i++) {
+      for (var i = 0; i < result.data.length; i++) {
         var animated = result.data[i].images.fixed_height.url
+        console.log("Animated:", animated)
         var still = result.data[i].images.fixed_height_still.url
-            console.log("Animated:" + animated)
+            console.log("still", still)
 
                 var newDiv = $("<div id='gif'>");
                 var p = $("<p>").text("Rating: " + result.data[i].rating);
